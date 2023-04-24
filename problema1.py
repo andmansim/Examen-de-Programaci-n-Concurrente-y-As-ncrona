@@ -28,24 +28,27 @@ class Cuenta():
        
         
     def ingresar(self, dato):
-        self.dinero = self.dinero + dato
+        self.dinero = self.dinero + int(dato)
+        return self.dinero
         
     
     def retirar(self, cantidad):
-        self.dinero = self.dinero - cantidad
+        self.dinero = self.dinero - int(cantidad)
+        return self.dinero
         
 
 def cliente(proc, dinero, func):
     pool = Pool(processes=proc)  
     pool.map(func, dinero)
+    print(f'Dinero actual {c.dinero}')
     pool.close()
     
     time.sleep(2)  
 
 if __name__ == '__main__':
-    d1 = 100
-    d2 = 50
-    d3 = 20
+    d1 = '100'
+    d2 = '50'
+    d3 = '20'
     c = Cuenta()
     cliente(40, d1, c.ingresar)
     cliente(20, d2, c.ingresar)
