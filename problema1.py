@@ -43,6 +43,8 @@ class Cuenta():
         self.dinero = self.dinero - cantidad
         self.operacion -= 1
 
-
-pool = Pool(processes=120)
-datos = pool.map()
+if __name__ == '__main__':
+    pool = Pool(processes=120)
+    
+    datos = pool.map()
+    pool.close()
