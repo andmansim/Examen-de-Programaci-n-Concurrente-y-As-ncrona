@@ -28,20 +28,20 @@ class Cuenta():
         print(f'Dinero inicial: {self.dinero}')
         
     def ingresar(self, dato):
-        self.dinero = self.dinero + int(dato[0])
-        print(f'Dinero actual {self.dinero}')
+        self.dinero = self.dinero + int(dato)
         return self.dinero
+       
         
     
     def retirar(self, cantidad):
         self.dinero = self.dinero - int(cantidad)
-        print(f'Dinero actual {self.dinero}')
         return self.dinero
         
 
 def cliente(proc, dinero, func):
     pool = Pool(processes=proc)  
-    pool.map(func, dinero)
+    print(pool.map(func, dinero))
+    
     pool.close()
     
     time.sleep(2)  
@@ -50,7 +50,8 @@ def listas(n, dato):
     lista = []
     for i in range(n):
         lista.append(dato)
-        
+    return lista
+
 if __name__ == '__main__':
     d1 = listas(40, 100)
     d2 = listas(20, 50)
