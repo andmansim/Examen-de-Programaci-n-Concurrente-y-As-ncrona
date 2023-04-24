@@ -25,31 +25,32 @@ import time
 class Cuenta():
     def __init__(self):
         self.dinero = 100
-       
+        print(f'Dinero inicial: {self.dinero}')
         
     def ingresar(self, dato):
-        self.dinero = self.dinero + int(dato)
+        self.dinero = self.dinero + int(dato[0])
+        print(f'Dinero actual {self.dinero}')
         return self.dinero
         
     
     def retirar(self, cantidad):
         self.dinero = self.dinero - int(cantidad)
+        print(f'Dinero actual {self.dinero}')
         return self.dinero
         
 
 def cliente(proc, dinero, func):
     pool = Pool(processes=proc)  
     pool.map(func, dinero)
-    print(f'Dinero actual {c.dinero}')
     pool.close()
     
     time.sleep(2)  
-
+c = Cuenta()
 if __name__ == '__main__':
-    d1 = '100'
+    d1 = ['100']
     d2 = '50'
     d3 = '20'
-    c = Cuenta()
+    
     cliente(40, d1, c.ingresar)
     cliente(20, d2, c.ingresar)
     cliente(60, d3, c.ingresar)
