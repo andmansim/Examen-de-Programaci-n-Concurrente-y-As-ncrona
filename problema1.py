@@ -20,7 +20,7 @@ De la misma manera se desean lo siguientes procesos que retiran cantidades.
 Se desea comprobar que tras la ejecución la cuenta tiene exactamente 100 euros, que era la cantidad de la que se disponía al principio.
 '''
 from multiprocessing import Pool
-import time
+import time 
 
 class Cuenta():
     def __init__(self):
@@ -30,8 +30,7 @@ class Cuenta():
     def ingresar(self, dato):
         self.dinero = self.dinero + int(dato)
         return self.dinero
-       
-        
+     
     
     def retirar(self, cantidad):
         self.dinero = self.dinero - int(cantidad)
@@ -43,7 +42,6 @@ def cliente(proc, dinero, func):
     print(pool.map(func, dinero))
 
     pool.close()
-    
     time.sleep(2)  
 
 def listas(n, dato):
