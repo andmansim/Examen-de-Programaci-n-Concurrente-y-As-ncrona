@@ -23,6 +23,15 @@ import threading
 import queue #cola para gestionar los datos
 
 q = queue.Queue(100)
-#función que incresa
-def ingresar(dato):
+
+class Cuenta(threading.Thread):
+    def __init__(self):
+        super().__init__()
+        pass
+    
+    def ingresar(self, dato):
+        pass
+    
+    def retirar(self):
+        pass
     
