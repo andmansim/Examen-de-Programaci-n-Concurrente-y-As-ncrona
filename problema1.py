@@ -33,12 +33,16 @@ class Cuenta():
         
     def ingresar(self, dato):
         
-        while True:
+        '''while True:
             q.join()
-            q.put(self.operacion)
-            self.dinero = self.dinero + dato
-            self.operacion += 1
+            q.put(self.operacion)'''
+        self.dinero = self.dinero + dato
+        self.operacion += 1
     
     def retirar(self, cantidad):
         self.dinero = self.dinero - cantidad
-    
+        self.operacion -= 1
+
+
+pool = Pool(processes=120)
+datos = pool.map()
