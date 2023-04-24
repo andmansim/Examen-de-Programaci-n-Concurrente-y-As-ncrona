@@ -19,19 +19,26 @@ De la misma manera se desean lo siguientes procesos que retiran cantidades.
 
 Se desea comprobar que tras la ejecución la cuenta tiene exactamente 100 euros, que era la cantidad de la que se disponía al principio.
 '''
-import threading 
+from multiprocessing import Pool
+import time
 import queue #cola para gestionar los datos
 
 q = queue.Queue(100)
 
-class Cuenta(threading.Thread):
+class Cuenta():
     def __init__(self):
-        super().__init__()
-        pass
-    
+        #super().__init__()
+        self.dinero = 100
+        self.operacion = 1
+        
     def ingresar(self, dato):
-        pass
+        
+        while True:
+            q.join()
+            q.put(self.operacion)
+            self.dinero = self.dinero + dato
+            self.operacion += 1
     
-    def retirar(self):
-        pass
+    def retirar(self, cantidad):
+        self.dinero = self.dinero - cantidad
     
