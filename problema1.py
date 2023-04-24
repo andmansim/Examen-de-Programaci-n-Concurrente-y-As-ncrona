@@ -21,31 +21,23 @@ Se desea comprobar que tras la ejecución la cuenta tiene exactamente 100 euros,
 '''
 from multiprocessing import Pool
 import time
-import queue #cola para gestionar los datos
-
-
 
 class Cuenta():
     def __init__(self):
-        #super().__init__()
         self.dinero = 100
-        self.operacion = 1
+       
         
     def ingresar(self, dato):
-        
-        '''while True:
-            q.join()
-            q.put(self.operacion)'''
         self.dinero = self.dinero + dato
-        self.operacion += 1
+        
     
     def retirar(self, cantidad):
         self.dinero = self.dinero - cantidad
-        self.operacion -= 1
+        
 
 def cliente(proc, dinero, func):
     pool = Pool(processes=proc)  
-    datos = pool.map(func, dinero)
+    pool.map(func, dinero)
     pool.close()
     time.sleep(2)  
 
@@ -57,4 +49,7 @@ if __name__ == '__main__':
     cliente(40, d1, c.ingresar)
     cliente(20, d2, c.ingresar)
     cliente(60, d3, c.ingresar)
-    cliente()
+    cliente(40, d1, c.retirar)
+    cliente(20, d2, c.retirar)
+    cliente(60, d3, c.retirar)
+    print(f'El dinero total es {c.dinero}')
