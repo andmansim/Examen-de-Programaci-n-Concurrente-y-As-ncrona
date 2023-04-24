@@ -19,3 +19,10 @@ De la misma manera se desean lo siguientes procesos que retiran cantidades.
 
 Se desea comprobar que tras la ejecución la cuenta tiene exactamente 100 euros, que era la cantidad de la que se disponía al principio.
 '''
+import threading 
+import queue #cola para gestionar los datos
+
+q = queue.Queue(100)
+#función que incresa
+def ingresar(dato):
+    
