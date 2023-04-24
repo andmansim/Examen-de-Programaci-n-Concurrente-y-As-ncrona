@@ -41,7 +41,7 @@ class Cuenta():
 def cliente(proc, dinero, func):
     pool = Pool(processes=proc)  
     print(pool.map(func, dinero))
-    
+
     pool.close()
     
     time.sleep(2)  
