@@ -39,6 +39,7 @@ def cliente(proc, dinero, func):
     pool = Pool(processes=proc)  
     pool.map(func, dinero)
     pool.close()
+    
     time.sleep(2)  
 
 if __name__ == '__main__':
