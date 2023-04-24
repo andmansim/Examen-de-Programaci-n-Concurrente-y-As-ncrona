@@ -23,7 +23,7 @@ from multiprocessing import Pool
 import time
 import queue #cola para gestionar los datos
 
-q = queue.Queue(100)
+
 
 class Cuenta():
     def __init__(self):
@@ -43,8 +43,18 @@ class Cuenta():
         self.dinero = self.dinero - cantidad
         self.operacion -= 1
 
-if __name__ == '__main__':
-    pool = Pool(processes=120)
-    
-    datos = pool.map()
+def cliente(proc, dinero, func):
+    pool = Pool(processes=proc)  
+    datos = pool.map(func, dinero)
     pool.close()
+    time.sleep(2)  
+
+if __name__ == '__main__':
+    d1 = 100
+    d2 = 50
+    d3 = 20
+    c = Cuenta()
+    cliente(40, d1, c.ingresar)
+    cliente(20, d2, c.ingresar)
+    cliente(60, d3, c.ingresar)
+    cliente()
