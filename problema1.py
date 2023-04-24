@@ -45,12 +45,17 @@ def cliente(proc, dinero, func):
     pool.close()
     
     time.sleep(2)  
-c = Cuenta()
+
+def listas(n, dato):
+    lista = []
+    for i in range(n):
+        lista.append(dato)
+        
 if __name__ == '__main__':
-    d1 = ['100']
-    d2 = '50'
-    d3 = '20'
-    
+    d1 = listas(40, 100)
+    d2 = listas(20, 50)
+    d3 = listas(60, 20)
+    c = Cuenta()
     cliente(40, d1, c.ingresar)
     cliente(20, d2, c.ingresar)
     cliente(60, d3, c.ingresar)
